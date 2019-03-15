@@ -24,4 +24,10 @@ app.post("/api", (req, res) => {
     .catch(err => console.log(err));
 });
 
+app.get("/", (req, res) => {
+  axios
+    .get("https://192.168.92.227:11443/ext/xbox/info")
+    .then(response => res.json(response.data));
+});
+
 app.listen(PORT, () => console.log(`app is running on port: ${PORT}`));
