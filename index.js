@@ -14,9 +14,11 @@ app.use(express.urlencoded({ extended: false }));
 
 app.post('/api', (req, res) => {
   const { url } = req.body;
-  axios
-    .get(url, { httpsAgent: agent })
-    .then(response => res.json(response.data));
+  console.log(url);
+  axios.get(url, { httpsAgent: agent }).then(response => {
+    console.log(response.data);
+    res.json(response.data);
+  });
 });
 
 app.listen(PORT, () => console.log(`app is running on port: ${PORT}`));
