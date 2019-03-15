@@ -26,7 +26,7 @@ app.post("/api", (req, res) => {
 
 app.get("/", (req, res) => {
   axios
-    .get("https://192.168.92.227:11443/ext/xbox/info")
+    .get("https://192.168.92.227:11443/ext/xbox/info", { httpsAgent: agent })
     .then(response => res.json(response.data));
 });
 
