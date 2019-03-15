@@ -1,6 +1,6 @@
-import express from "express";
-import https from "https";
-import axios from "axios";
+const express = require("express");
+const https = require("https");
+const axios = require("axios");
 
 const app = new express();
 const PORT = process.env.PORT || 5000;
