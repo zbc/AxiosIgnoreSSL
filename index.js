@@ -1,6 +1,6 @@
-import express from 'express';
-import https from 'https';
-import axios from 'axios';
+import express from "express";
+import https from "https";
+import axios from "axios";
 
 const app = new express();
 const PORT = process.env.PORT || 5000;
@@ -12,12 +12,12 @@ const agent = new https.Agent({
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.post('/api', (req, res) => {
+app.post("/api", (req, res) => {
   const { url } = req.body;
   console.log(url);
   axios.get(url, { httpsAgent: agent }).then(response => {
     console.log(response.data);
-    res.json(response.data);
+    return res.json(response.data);
   });
 });
 
